@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B11</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .car{
+            width: 8em;
+            height: 8em;
+            font-size: 30px;
+            position: relative;
+        }
+        .car span{
+            position: absolute;
+            top: 4em;
+            width: 1em;
+            height: 1em;
+            background: #3cefff;
+            border-radius: 50%;
+            transform-origin: 4em top;
+            animation: dance 1s linear infinite;
+        }
+        @keyframes dance {
+            to{
+                transform: rotateX(360deg) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="car">
+        <span></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C16</title>
+    <style>
+        .smiley{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 20px solid #d9ac4c;
+            background: #eed16b;
+            position: relative;
+        }
+        .smiley .eyes{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #d9ac4c;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            transform: translate(-40%,-30%);
+        }
+        .smiley .eyes:nth-child(2){
+            margin-left: 150px;
+        }
+        .smiley .mouth{
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            background: #d9ac4c;
+            left: 25%;
+            top: 60%;
+            transition: all 0.5s;
+            border-radius:100px;
+        }
+        .btn ul{
+            display: flex;
+            width: 340px;
+            justify-content: space-around;
+        }
+        .btn ul li{
+            width: 100px;
+            height: 40px;
+            list-style: none;
+
+        }
+        .btn ul li label{
+            width: 100px;
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            background: #92c463;
+            cursor: pointer;
+            border-radius: 20px;
+            color: #fff;
+        }
+        .btn ul li:nth-child(2) label{
+            background:#eed16b;
+        }
+        .btn ul li:nth-child(3) label{
+            background:#ee9295;
+        }
+        .btn ul li input{
+
+            display: none;
+        }
+        @keyframes moveMouthToYellow {
+            to{
+                border-radius:100px;
+                background: #dba552;
+            }
+        }
+        @keyframes moveBgToYellow {
+            to{
+                background: #eed16b;
+                border-color: #d9ac4c;
+            }
+        }
+        @keyframes moveEyesToYellow {
+            to{
+                background: #d9ac4c;
+            }
+        }
+        @keyframes moveMouthToRed {
+            to{
+                border-radius:100px 100px 0 0;
+                background: #d86065;
+            }
+        }
+        @keyframes moveBgToRed {
+            to{
+                background: #ee9295;
+                border-color: #d86065;
+            }
+        }
+        @keyframes moveEyesToRed {
+            to{
+                background: #d86065;
+            }
+        }
+        @keyframes moveMouthToGreen {
+            from{
+                border-radius:0;
+            }
+            to{
+                border-radius:0 0 100px 100px;
+                background:#92c463;
+            }
+        }
+        @keyframes moveBgToGreen {
+            to{
+                background: #a9db7a;
+                border-color:#92c463;
+            }
+        }
+        @keyframes moveEyesToGreen {
+            to{
+                background:#92c463;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="smiley" id="smiley1">
+    <div class="eyes"></div>
+    <div class="eyes"></div>
+    <div class="mouth"></div>
+</div>
+<div class="btn">
+    <ul>
+        <li>
+            <label for="green" id="green-label">:)</label>
+            <input type="radio" id="green" name="smiley">
+        </li>
+        <li>
+            <label for="yellow" id="yellow-label">:|</label>
+            <input type="radio" id="yellow" name="smiley">
+        </li>
+        <li>
+            <label for="red" id="red-label">:(</label>
+            <input type="radio" id="red" name="smiley">
+        </li>
+    </ul>
+</div>
+
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    function $class(className) {
+        return document.getElementsByClassName(className);
+    }
+    var green=$('green-label'),
+        yellow=$('yellow-label'),
+        red=$('red-label'),
+        smiley=$class('smiley'),
+        mouth=$class('mouth'),
+        eyes=$class('eyes');
+
+    green.onclick=function () {
+        smiley[0].style.animation='moveBgToGreen 0.5s forwards';
+        mouth[0].style.animation='moveMouthToGreen 1s forwards';
+        eyes[0].style.animation='moveEyesToGreen 0.5s forwards';
+        eyes[1].style.animation='moveEyesToGreen 0.5s forwards';
+    };
+    yellow.onclick=function () {
+        smiley[0].style.animation='moveBgToYellow 0.5s forwards';
+        mouth[0].style.animation='moveMouthToYellow 0.5s forwards';
+        eyes[0].style.animation='moveEyesToYellow 0.5s forwards';
+        eyes[1].style.animation='moveEyesToYellow 0.5s forwards';
+    };
+    red.onclick=function () {
+        smiley[0].style.animation='moveBgToRed 0.5s forwards';
+        mouth[0].style.animation='moveMouthToRed 0.5s forwards';
+        eyes[0].style.animation='moveEyesToRed 0.5s forwards';
+        eyes[1].style.animation='moveEyesToRed 0.5s forwards';
+    }
+
+</script>
+</body>
+</html>

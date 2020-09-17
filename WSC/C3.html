@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body { background-color:yellow;}
+        #c1 { background-color: white; }
+    </style>
+</head>
+<body>
+<canvas id="c1" width="400px" height="400px"> <!--宽高写在html里，写在css里有问题-->
+    <span>该浏览器不支持canvas内容</span> <!--对于不支持canvas的浏览器显示-->
+</canvas>
+<button id="btn_red" name="0">红色</button>
+<button id="btn_yellow" name="1">黄色</button>
+<button id="btn_blue" name="2">蓝色</button>
+<script>
+    window.onload = function() {
+        var oC = document.getElementById('c1');
+        var btn_red = document.getElementById('btn_red');
+        var btn_yellow = document.getElementById('btn_yellow');
+        var btn_blue = document.getElementById('btn_blue');
+        var oCG = oC.getContext('2d');
+        var strokeColor='';
+        var cRname=btn_red.name;
+        var cYname=btn_yellow.name;
+        var cBname=btn_blue.name;
+        btn_red.onclick=function () {
+            changeColor(cRname)
+        };
+        btn_yellow.onclick=function () {
+            changeColor(cYname)
+        };
+        btn_blue.onclick=function () {
+            changeColor(cBname)
+        };
+        function changeColor(color) {
+            switch (color) {
+                case '0':
+                    strokeColor='red';
+                    console.log(strokeColor);
+                    break;
+                case '1':
+                    strokeColor='yellow';
+                    console.log(strokeColor);
+                    break;
+                case '2':
+                    strokeColor='blue';
+                    console.log(strokeColor);
+                    break;
+                default:
+                    strokeColor='black';
+                    console.log(strokeColor);
+                    break;
+            }
+
+        }
+        oC.onmousedown = function(ev) {
+            var ev = ev || window.event;
+            oCG.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop); //ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop鼠标在当前画布上X,Y坐标
+            document.onmousemove = function(ev) {
+                var ev = ev || window.event;//获取event对象
+                oCG.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+                oCG.strokeStyle=`${strokeColor}`;
+                oCG.stroke();
+            };
+            oC.onmouseup = function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+
+        // strokeColor=btn_yellow.onclick=changeColor(btn_yellow.name);
+        // strokeColor=btn_blue.onclick=changeColor(btn_blue.name);
+
+    };
+</script>
+</body>
+</html>

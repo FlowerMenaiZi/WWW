@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10</title>
+    <style>
+        #content{
+            width: 100px;
+            margin: 100px auto;
+            height: 100px;
+        }
+        #content span{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            float: left;
+            transition: all 2s;
+        }
+        #content span:nth-child(1){
+            background: #19A68C;
+            animation: moveGreen 2s infinite;
+        }
+        #content span:nth-child(2){
+            background: #F63D3A;
+            margin-left: 20px;
+            animation: moveRed 2s infinite;
+        }
+        #content span:nth-child(3){
+            background:#FDA543;
+            margin-top: 20px;
+            animation: moveYellow 2s infinite;
+        }
+        #content span:nth-child(4){
+            background:#193B48;
+            margin-left: 20px;
+            margin-top: 20px;
+            animation: moveBlack 2s infinite;
+        }
+        @keyframes moveRed {
+            0%{
+                transform:translate(0,0);
+            }
+            30%{
+                transform: translate(0,60px);
+            }
+            50%{
+                transform: translate(-60px,60px);
+            }
+            70%{
+                transform: translate(-60px,0);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveGreen {
+            0%{
+                transform:translate(0,0);
+            }
+            30%{
+                transform: translate(60px,0);
+            }
+            50%{
+                transform: translate(60px,60px);
+            }
+            70%{
+                transform: translate(0,60px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveBlack {
+            0%{
+                transform:translate(0,0);
+            }
+            30%{
+                transform: translate(-60px,0);
+            }
+            50%{
+                transform: translate(-60px,-60px);
+            }
+            70%{
+                transform: translate(0,-60px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveYellow {
+            0%{
+                transform:translate(0,0);
+            }
+            30%{
+                transform: translate(0,-60px);
+            }
+            50%{
+                transform: translate(60px,-60px);
+            }
+            70%{
+                transform: translate(60px,0);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B3</title>
+    <style>
+        .content{
+            margin:100px auto;
+            width:100px;
+        }
+        .circular{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            float: left;
+            transition: all 2s;
+        }
+        .red{
+            background: #F63D3A;
+            animation: moveRedCircular 2s infinite;
+        }
+        .green{
+            background:#19A68C;
+            margin: 0 0 0 20px;
+            animation: moveGreenCircular 2s infinite;
+        }
+        .yellow{
+            background: #FDA543;
+            margin: 20px 0 0 0;
+            animation: moveYellowCircular 2s infinite;
+        }
+        .black{
+            background: #193B48;
+            margin: 20px 0 0 20px;
+            animation: moveBlackCircular 2s infinite;
+        }
+        @keyframes moveRedCircular {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(60px,0);
+            }
+            50%{
+                transform: translate(60px,60px);
+            }
+            75%{
+                transform: translate(0,60px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveGreenCircular {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(0,60px);
+            }
+            50%{
+                transform: translate(-60px,60px);
+            }
+            75%{
+                transform: translate(-60px,0);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveYellowCircular {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(0,-60px);
+            }
+            50%{
+                transform: translate(60px,-60px);
+            }
+            75%{
+                transform: translate(60px,0);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes moveBlackCircular {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(-60px,0);
+            }
+            50%{
+                transform: translate(-60px,-60px);
+            }
+            75%{
+                transform: translate(0,-60px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="content">
+            <div class="red  circular"></div>
+            <div class="green circular"></div>
+            <div class="yellow circular"></div>
+            <div class="black circular"></div>
+        </div>
+</body>
+</html>

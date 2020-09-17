@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B4</title>
+    <style>
+        #toggle{
+            display: none;
+        }
+        .circular{
+            display: block;
+            width: 80px;
+            height: 40px;
+            background: #01008b;
+            border-radius:30px;
+            position: relative;
+            border: none;
+            outline: none;
+        }
+        .circular:after{
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius:50%;
+            background: #02ffff;
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            transition: all 1s;
+            animation: BackShowSpan 1s forwards;
+        }
+        input[type='checkbox']:checked + span{
+            background:#02ffff;
+        }
+        input[type='checkbox']:checked + span:after{
+            background: #01008b;
+            transition: all 1s;
+            animation: showSpan 0.2s forwards;
+        }
+        @keyframes showSpan {
+            0%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0;
+                top: 12px;
+                left: 55px;
+            }
+            100%{
+                opacity: 1;
+                top: 12px;
+                left: 55px;
+            }
+        }
+        @keyframes BackShowSpan {
+            0%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 1;
+                top: 12px;
+                left: 10px;
+            }
+            100%{
+                opacity: 1;
+                top: 12px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <label for="toggle">
+        <input type="checkbox" id="toggle">
+        <span class="circular"></span>
+    </label>
+</body>
+</html>

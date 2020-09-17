@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="./athena.jpg" alt="" id="img">
+<canvas id="can" width="460px" height="320px" style="background: #377b24">
+    您的浏览器版本过低!
+</canvas>
+<br>
+<label for="">Image:</label>
+<select name="" id="image">
+    <option value="image">image:</option>
+    <option value="1">Athena.jpg</option>
+    <option value="2">theKiss.jpg</option>
+    <option value="3">young-pearl.jpg</option>
+    <option value="4">mona-lisa.jpg</option>
+</select>
+<label for="">Filter:</label>
+<select name="" id="filter">
+    <option value="image">filter:</option>
+    <option value="1">变暗</option>
+    <option value="2">变亮</option>
+</select>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var c=$('can'),
+        img=$('img'),
+        image=$('image'),
+        filter=$('filter');
+
+    var ctx=c.getContext("2d");
+    img.onload=function () {
+        ctx.drawImage(img,10,10)
+    };
+    image.addEventListener("change",function () {
+        switch (image.value) {
+            case '1':
+                img.src="./athena.jpg";
+                break;
+            case '2':
+                img.src="./theKiss.jpg";
+                break;
+            case '3':
+                img.src="./young-pearl.jpg";
+                break;
+            case '4':
+                img.src="./mona-lisa.jpg";
+                break;
+        }
+    });
+    filter.addEventListener("click",function () {
+        switch (filter.value) {
+            case '1':
+                var imgData=ctx.getImageData(10,10,200,300),
+                data=imgData.data;
+                for (let i=0;i<data.length;i+=4){
+                    data[i] -= 50;
+                    data[i+1] -= 50;
+                    data[i+2] -= 50;
+                }
+                ctx.putImageData(imgData,240,10);
+                break;
+            case '2':
+                var imgData2=ctx.getImageData(10,10,200,300),
+                    data1=imgData2.data;
+                for (let i=0;i<data1.length;i+=4){
+                    data1[i] += 40;
+                    data1[i+1] += 40;
+                    data1[i+2] += 40;
+                }
+                ctx.putImageData(imgData2,240,10);
+                break;
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw student number</title>
+    <style>
+
+        .name{
+            height: 30px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            border: 2px solid #3cefff;
+            outline: none;
+        }
+        .sub{
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            background: #3cefff;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="name" id="StuName">
+    <input type="submit" class="sub" value="开始" id="sub">
+    <textarea name="oldName" id="oldName" cols="8" rows="30"></textarea>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var StuName=$('StuName'),
+        sub=$('sub'),
+        oldName=$('oldName');
+    var arr_name=['01李建华','02梁焯坚','03梁伟鸿','04何智权','05张晓峰','06岑豪彬','07苏朗华','08黄梓轩','09陈子健'];
+
+    var oldNum=[];
+    sub.onclick=function () {
+        random();
+        console.log(randomNum, oldNum);
+        StuName.value=arr_name[randomNum-1];
+        oldName.value+=arr_name[randomNum-1];
+    };
+    function random() {
+        randomNum=Math.round(Math.random()*(9 - 1))+1;
+        if (oldNum.indexOf(randomNum) >= 0){
+           random();
+        }else{
+           oldNum.push(randomNum);
+           return randomNum;
+        }
+    }
+
+</script>
+</body>
+</html>

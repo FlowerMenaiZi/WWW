@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C4</title>
+    <style>
+        .color{
+            width: 200px;
+            height: 200px;
+            background: rgb(0, 0, 0);
+            position: relative;
+            text-align: center;
+        }
+        .color p{
+            color: #fff;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+        }
+        .block{
+            width: 270px;
+            height: 10px;
+            background: #c1c1c1;
+            margin-top: 20px;
+            box-shadow:2px 2px 2px black;
+            position: relative;
+
+        }
+        .block .block-slider{
+            display: block;
+            width: 15px;
+            height: 20px;
+            background: #b0b0b0;
+            position: absolute;
+            top: -5px;
+            box-shadow: 0 0 3px 2px black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="color" id="color">
+    <p id="rgb">rgb(<span id="r_span">0</span>, <span id="g_span">0</span>, <span id="b_span">0</span>)</p>
+</div>
+<div class="block" id="r">
+    <span class="block-slider" id="r_slider"></span>
+</div>
+<div class="block" id="g">
+    <span class="block-slider" id="g_slider"></span>
+</div>
+<div class="block" id="b">
+    <span class="block-slider" id="b_slider"></span>
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var color = $('color'),
+        r_slider = $('r_slider'),
+        g_slider = $('g_slider'),
+        b_slider = $('b_slider'),
+        r_span = $('r_span'),
+        g_span = $('g_span'),
+        b_span = $('b_span');
+    move_slider(r_slider,r_span);
+    move_slider(g_slider,g_span);
+    move_slider(b_slider,b_span);
+    function move_slider(el,span) {
+        el.onmousedown=function (e) {
+            var endx = '';
+            var left = parseInt(el.getBoundingClientRect().left - 8);
+            var downx = e.pageX;
+            el.onmousemove = function (ev) {
+                endx = ev.pageX-downx+left;
+                if (endx < 0){
+                    endx = 0;
+                }
+                if (endx >= 255){
+                    endx = 255;
+                }
+                el.style.left=endx + 'px';
+                span.innerText=endx;
+                color.style.background=`rgb(${r_span.innerText},${g_span.innerText},${b_span.innerText})`
+            }
+        };
+        el.onmouseup = function () {
+            el.onmousemove = null;
+        }
+    }
+</script>
+</html>

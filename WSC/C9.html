@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C9</title>
+    <style>
+        i{
+            color: #c93141;
+        }
+    </style>
+</head>
+<body>
+    支出名称：<input type="text" id="S_name"><br>
+    <i id="s_i"></i><br>
+    成本：<input type="number" id="cost"><br>
+    <i id="c_i"></i><br>
+    <input type="submit" id="btn" value="添加">
+<div id="content">
+
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var s_name=$('S_name'),
+        s_i=$('s_i'),
+        cost=$('cost'),
+        c_i=$('c_i'),
+        btn=$('btn'),
+        content=$('content');
+
+
+    function check_input(ele,Show_error) {
+        if (ele.value == ''){
+            Show_error.innerText="There was a error";
+            return false;
+        }else{
+            Show_error.innerText='Correct';
+            return true;
+        }
+    }
+    btn.onclick=function () {
+        var name_isOk=check_input(s_name,s_i);
+        var cost_isOk=check_input(cost,c_i);
+        if (name_isOk && cost_isOk) {
+            content.innerHTML+=`<ol>
+        <li>支出名称:${s_name.value}</li>
+        <li>成本:${cost.value}</li>
+</ol>`;
+            setTimeout(function () {
+                s_name.value='';
+                cost.value='';
+                s_i.innerText='';
+                c_i.innerText='';
+            },3000)
+        }
+    }
+
+</script>
+</html>

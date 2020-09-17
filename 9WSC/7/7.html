@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7</title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="320" style="background: #008000">
+    您的浏览器版本过低
+</canvas>
+<script>
+    var c=document.getElementById('canvas');
+    var ctx=c.getContext("2d");
+    ctx.arc(20,140,15,0,2*Math.PI);
+    ctx.fillStyle="white";
+    ctx.fill();
+    var x=20;
+    var time=setInterval(function () {
+        c.width=c.width;
+        ctx.arc(x,140,15,0,2*Math.PI);
+        ctx.fillStyle="white";
+        ctx.fill();
+        x+=1;
+        if (x > 370){
+            clearInterval(time)
+        }
+    },2)
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B13</title>
+    <style>
+        div{
+            height: 200px;
+            animation: changeBgColor 2s infinite;
+
+        }
+        @keyframes changeBgColor {
+            0%{
+                background: red;
+            }
+            50%{
+                background-image: linear-gradient(red,yellow);
+            }
+            100%{
+                background-image: linear-gradient(red,yellow,blue);
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

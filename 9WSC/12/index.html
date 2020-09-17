@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12</title>
+    <style>
+        #color{
+            width: 200px;
+            height: 200px;
+            background: rgb(0,0,0);
+            position: relative;
+            left: 40px;
+        }
+        #color p{
+            width: 100%;
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            transform: translate(0,-40%);
+            color: #fff;
+        }
+        .block{
+            width: 270px;
+            height: 10px;
+            background: #d9d9d9;
+            margin-top: 20px;
+            box-shadow: 2px 2px 4px 2px #000000;
+            position: relative;
+        }
+        .block span{
+            display: block;
+            width: 14px;
+            height: 20px;
+            background: #b2b2b2;
+            box-shadow: 0 0 3px 2px #000000;
+            position: absolute;
+            top: -5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="color">
+    <p>rgb(<span id="span_r">0</span>,<span id="span_g">0</span>,<span id="span_b">0</span>)</p>
+</div>
+<div class="block">
+    <span id="r_slider"></span>
+</div>
+<div class="block">
+    <span id="g_slider"></span>
+</div>
+<div class="block">
+    <span id="b_slider"></span>
+</div>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var color=$('color'),
+        span_r=$('span_r'),
+        span_g=$('span_g'),
+        span_b=$('span_b'),
+        r_slider=$('r_slider'),
+        g_slider=$('g_slider'),
+        b_slider=$('b_slider');
+    changeColor(r_slider,span_r);
+    changeColor(g_slider,span_g);
+    changeColor(b_slider,span_b);
+    function changeColor(ele,span) {
+        ele.onmousedown=function (e) {
+            var endx='';
+            var left=parseInt(ele.getBoundingClientRect().left-8);
+            var downx=e.pageX;
+            ele.onmousemove=function (es) {
+                endx=es.pageX-downx+left;
+                if (endx < 0){
+                    endx = 0;
+                }
+                if (endx >= 255){
+                    endx = 255;
+                }
+                ele.style.left=parseInt(endx)+"px";
+                span.innerText=endx;
+                color.style.background=`rgb(${span_r.innerText},${span_g.innerText},${span_b.innerText})`
+            }
+        };
+        ele.onmouseup=function () {
+          ele.onmousemove=null;
+        }
+    }
+
+</script>
+</body>
+</html>

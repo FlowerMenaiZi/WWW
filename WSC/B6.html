@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B6</title>
+    <style>
+        .equilater{
+            width: 0;
+            height: 0;
+            border: 100px solid;
+            margin: 0 auto;
+            border-color: transparent transparent blue transparent;
+            transition: all 2s;
+            animation: ChangeToSquare 2s infinite;
+            animation-delay: 1s;
+        }
+        @keyframes ChangeToSquare {
+            from{
+                border-color: transparent transparent blue transparent;
+            }
+            to{
+                width: 200px;
+                height: 200px;
+                border:1px solid transparent;
+                background: yellow;
+                /*border-color:yellow;*/
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="equilater">
+
+    </div>
+</body>
+</html>

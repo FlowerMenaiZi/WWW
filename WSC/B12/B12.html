@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音视频的控制</title>
+    <style>
+        .box{
+            width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #movie{
+            width: 800px;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        #form .search{
+            outline: none;
+            width: 200px;
+            height: 25px;
+            margin-bottom: 10px;
+            border: 2px solid #aba3cc;
+            text-indent: 4px;
+            border-radius: 6px;
+        }
+        .submit{
+            width: 80px;
+            padding: 5px;
+            background:#aba3cc;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+        }
+        .movie_list{
+            width: 140px;
+            height:80px;
+        }
+        .list{
+            position: absolute;
+            top: 30px;
+            left: 850px;
+        }
+        .comment{
+            margin-top: 50px;
+        }
+        .comment ul li img{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .comment ul li p{
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .comment .content{
+            text-indent:70px;
+        }
+        .comment .time{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <form action="#" method="post" id="form">
+        <input type="text" placeholder="搜索视频" class="search">
+        <input type="submit" class="submit" value="搜索">
+    </form>
+    <div class="movieing">
+        <video  id="movie" controls>
+            <source src="http://123.207.96.28:8891/movie.mp4" type="video/mp4">
+        </video>
+        <ul>
+            <li><h3>掠食</h3></li>
+            <li>近日中国地理拍摄了海鸥捕食的画面，向我们近距离展示海鸥捕食的情况</li>
+            <li>播放量：<label for="">1</label></li>
+        </ul>
+    </div>
+    <div class="list">
+        <div>
+            <h4>播放列表</h4>
+            <video  class="movie_list" controls>
+                <source src="http://123.207.96.28:8891/movie.mp4" type="video/mp4">
+                <ul>
+                    <li><h3>掠食</h3></li>
+                    <li>近日中国地理拍摄了海鸥捕食的画面，向我们近距离展示海鸥捕食的情况</li>
+                    <li>播放量：<label for="">1</label></li>
+                </ul>
+            </video>
+        </div>
+        <div>
+            <video  class="movie_list" controls>
+                <source src="http://123.207.96.28:8891/movie2.mp4" type="video/mp4">
+                <ul>
+                    <li><h3>掠食</h3></li>
+                    <li>近日中国地理拍摄了海鸥捕食的画面，向我们近距离展示海鸥捕食的情况</li>
+                    <li>播放量：<label for="">1</label></li>
+                </ul>
+            </video>
+        </div>
+    </div>
+    <div class="comment">
+        <h4>评论:</h4>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>Flower</p>
+            </li>
+            <li class="content">
+                大自然真奇妙
+            </li>
+            <li class="time">
+                3小时前
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>REWOLF</p>
+            </li>
+            <li class="content">
+                我敬畏大自然
+            </li>
+            <li class="time">
+                2小时前
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>匿名用户</p>
+            </li>
+            <li class="content">
+                不愿透露姓名
+            </li>
+            <li class="time">
+                7小时前
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>FFFFFF</p>
+            </li>
+            <li class="content">
+                我太喜欢了
+            </li>
+            <li class="time">
+                昨天
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>admin</p>
+            </li>
+            <li class="content">
+                哈哈哈哈哈
+            </li>
+            <li class="time">
+                3分钟前
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><img src="./media/headface.jpg" alt="" align="AbsMiddle"></a>
+                <p>雪</p>
+            </li>
+            <li class="content">
+                我喜欢
+            </li>
+            <li class="time">
+                1分钟前
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<script>
+
+
+</script>
+</body>
+</html>

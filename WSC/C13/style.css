@@ -1,0 +1,13 @@
+#draggable {
+    position: absolute;
+
+    width: 150px;
+    height: 40px;
+    line-height: 36px;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+    /*cursor: pointer;*/
+    border: 1px solid pink;
+    color: deeppink;
+}

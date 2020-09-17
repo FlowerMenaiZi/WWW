@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        i{
+            height: 10px;
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+<label for="">支出名称：</label>
+<input type="text" id="zc">
+<i id="zc_i"></i><br>
+<label for="">成本</label>
+<input type="number" id="cb">
+<i id="cb_i"></i><br>
+<input type="submit" id="btn">
+<div id="content"></div>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var zc=$('zc'),
+        zc_i=$('zc_i'),
+        cb=$('cb'),
+        cb_i=$('cb_i'),
+        btn=$('btn'),
+        content=$('content');
+
+    function check(ele,mes) {
+        if (ele.value == ""){
+            mes.innerText="不能为空";
+            return false;
+        }else{
+            mes.innerText="正确";
+            return true;
+        }
+    }
+    btn.onclick=function () {
+        var is_zc=check(zc,zc_i);
+        var is_cb=check(cb,cb_i);
+        if (is_zc && is_cb){
+            content.innerHTML+=`
+            <ol>
+            <li>支出名称：${zc.value}</li>
+            <li>成本：${cb.value}</li>
+</ol>
+            `
+        }
+        setTimeout(function () {
+            zc.value="";
+            cb.value="";
+            zc_i.innerText='';
+            cb_i.innerText='';
+        },3000)
+    }
+</script>
+</body>
+</html>

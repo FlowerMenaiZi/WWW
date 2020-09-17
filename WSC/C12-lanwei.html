@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C12</title>
+</head>
+<body>
+<input type="text" id="string">
+<input type="submit" id="btn" value="计算">
+<label for="">结果:</label><span id="result"></span>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var str=$('string'),
+        btn=$('btn'),
+        result=$('result');
+
+    btn.onclick=function () {
+        instr=str.value;
+        arr=[];
+        arr=instr.split("");
+        var tem='';
+        Math_(arr,tem)
+    };
+    function Math_(arr,tem) {
+        if (arr.indexOf('*') > 0){
+            index = arr.indexOf('*');
+            tem=parseInt(arr[index-1])*parseInt(arr[index+1]);
+            arr.splice(index-1,3);
+            if (arr.length >= 2){
+                arr.splice(index-1,0,tem);
+                Math_(arr,tem);
+            }else{
+                result.innerText=tem;
+            }
+        }
+        if (arr.indexOf('+') > 0 || arr.indexOf('-') > 0){
+            if (arr.indexOf('+') > 0 && arr.indexOf('-') > 0){
+                if (arr.indexOf('+') < arr.indexOf('-')){
+                    index = arr.indexOf('+');
+                    tem=parseInt(arr[index-1])+parseInt(arr[index+1]);
+                    arr.splice(index-1,3);
+                    if (arr.length >= 2){
+                        arr.splice(index-1,0,tem);
+                        Math_(arr,tem);
+                    }else{
+                        result.innerText=tem;
+                    }
+                }else{
+                    index = arr.indexOf('-');
+                    tem=parseInt(arr[index-1])-parseInt(arr[index+1]);
+                    arr.splice(index-1,3);
+                    if (arr.length >= 2){
+                        arr.splice(index-1,0,tem);
+                        Math_(arr,tem);
+                    }else{
+                        result.innerText=tem;
+                    }
+                }
+            }else if (arr.indexOf('+') > 0){
+                index = arr.indexOf('+');
+                tem=parseInt(arr[index-1])+parseInt(arr[index+1]);
+                arr.splice(index-1,3);
+                if (arr.length >= 2){
+                    arr.splice(index-1,0,tem);
+                    Math_(arr,tem);
+                }else{
+                    result.innerText=tem;
+                }
+            }else{
+                index = arr.indexOf('-');
+                tem=parseInt(arr[index-1])-parseInt(arr[index+1]);
+                arr.splice(index-1,3);
+                if (arr.length >= 2){
+                    arr.splice(index-1,0,tem);
+                    Math_(arr,tem);
+                }else{
+                    result.innerText=tem;
+                }
+            }
+        }
+    }
+
+</script>
+</html>

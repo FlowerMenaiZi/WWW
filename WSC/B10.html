@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B10</title>
+    <style>
+        .contains{
+            width: 400px;
+            height: 400px;
+            background: #d9edf7;
+            position: relative;
+            margin: 0 auto;
+        }
+        .settings-panel{
+            line-height: 30px;
+        }
+        .settings-panel>input{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+ <div class="contains" id="contains">
+     <div class="settings-panel">
+         <label for="" style="color:red;">border-radius</label>
+         <br>
+         <label for="">LeftTop:</label>
+         <input type="number" name="border-radius-lt" class="border-radius" value="0"><br>
+         <label for="">RightTop:</label>
+         <input type="number" name="border-radius-rt" class="border-radius" value="0"><br>
+         <label for="">LeftBottom:</label>
+         <input type="number" name="border-radius-lb" class="border-radius" value="0"><br>
+         <label for="">RightBottom:</label>
+         <input type="number" name="border-radius-rb" class="border-radius" value="0">
+     </div>
+     <div class="settings-panel">
+         <label for="" style="color:red;">box-shadow</label>
+         <br>
+         <label for="">h-shadow</label>
+         <input type="number" name="h-shadow" class="box-shadow" value="0"><br>
+         <label for="">v-shadow</label>
+         <input type="number" name="v-shadow" class="box-shadow" value="0"><br>
+         <label for="">blur</label>
+         <input type="number" name="blur" class="box-shadow" value="0"><br>
+         <label for="">spread</label>
+         <input type="number" name="spread" class="box-shadow" value="0"><br>
+         <label for="">color</label>
+         <input type="color" name="h-shadow" class="box-shadow">
+     </div>
+ </div>
+ <script>
+     var borderRadius=document.getElementsByClassName('border-radius');
+     var boxShadow=document.getElementsByClassName('box-shadow');
+     var contains=document.getElementById('contains');
+     for (let i=0;i<borderRadius.length;i++){
+         borderRadius[i].addEventListener('change',function () {
+             if (borderRadius[i].value == '') {
+                 borderRadius[i].value=0;
+             }
+             switch (i) {
+                 case 0:
+                     contains.style.webkitBorderTopLeftRadius=borderRadius[i].value+'px';
+                     break;
+                 case 1:
+                     contains.style.borderTopRightRadius=borderRadius[i].value+'px';
+                     break;
+                 case 2:
+                     contains.style.borderBottomLeftRadius=borderRadius[i].value+'px';
+                     break;
+                 case 3:
+                     contains.style.borderBottomRightRadius=borderRadius[i].value+'px';
+                     break;
+             }
+         });
+     }
+     for (let i=0;i<boxShadow.length;i++){
+         boxShadow[i].addEventListener('blur',function () {
+             let h=boxShadow[0].value;
+             let v=boxShadow[1].value;
+             let b=boxShadow[2].value;
+             let s=boxShadow[3].value;
+             let c=boxShadow[4].value;
+             contains.style.boxShadow=""+h+"px "+v+"px "+b+"px "+s+"px "+c+"";
+             // contains.style.boxShadow=`${h}px ${v}px ${b}px ${s}px ${c}px`;
+         })
+     }
+ </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/*CSS RESET*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*PUT YOUR CSS CODE HERE*/
+#block{
+	margin: 100px auto;
+	border: 5px solid yellow;
+	width: 200px;
+	height: 200px;
+	background: yellow;
+	animation: change 2s infinite;
+}
+@keyframes change {
+	from{
+		border: 5px solid yellow;
+		border-radius: 0;
+	}
+	to{
+		border: 5px solid red;
+		background: transparent;
+		border-radius: 50%;
+	}
+}
