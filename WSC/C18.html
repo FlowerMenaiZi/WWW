@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+
+            width: 200px; height: 200px; margin: 200px auto; background: #000;
+            position: relative;-webkit-backface-visibility: hidden;
+            backface-visibility: hidden;}
+        div::after{
+            border-right: 1px solid #fff;
+            border-left: 1px solid #fff;
+            -webkit-transform: scale(1,0);
+            transform: scale(1,0);
+        }
+        div::before{
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            -webkit-transform: scale(0,1);
+            transform: scale(0,1);
+
+        }
+        div::before,div::after{
+            position:absolute;
+            top:30px;
+            right:30px;
+            bottom:30px;
+            left:30px;
+            content:'';
+            opacity:0;
+            -webkit-transition:opacity .35s,-webkit-transform .35s;
+            transition:opacity .35s,transform .35s;
+            pointer-events: none;
+        }
+
+        div:hover::after,div:hover::before {
+            opacity:1;
+            -webkit-transform:scale(1);
+            transform:scale(1)
+        }
+
+        body{background: yellowgreen;}
+        *, :after, :before, input[type=search] {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

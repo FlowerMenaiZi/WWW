@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <style>
+        html{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #wrap .email i,#wrap .password i{
+            color: #ff4850;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="email">
+            <label for="">邮箱：</label>
+            <input type="email" placeholder="请输入邮箱" id="email">
+            <i class="error"></i>
+        </div>
+        <div class="password">
+            <label for="">密码：</label>
+            <input type="password" placeholder="请输入密码" id="password">
+            <i class="error"></i>
+        </div>
+    </div>
+    <script>
+        var emailObj=document.getElementById('email'),
+            passwordObj=document.getElementById('password'),
+            error=document.getElementsByClassName('error');
+
+        emailObj.addEventListener('blur', ()=>{
+            postAjax(0,"email",emailObj);
+        });
+        passwordObj.addEventListener('blur', ()=>{
+            postAjax(1,"password",passwordObj);
+        });
+        var postAjax=(errorNum,ele,eleVal)=>{
+            var postXmlHttp;
+            postXmlHttp=new XMLHttpRequest();
+            postXmlHttp.onreadystatechange=()=>{
+                if (postXmlHttp.status == 200 && postXmlHttp.readyState == 4){
+                    console.log(postXmlHttp.responseText);
+                    error[errorNum].innerText=postXmlHttp.responseText;
+                }
+            };
+
+            postXmlHttp.open('POST','./login.php',true);
+            postXmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            postXmlHttp.send(`${ele}=${eleVal.value}`);
+        }
+    </script>
+</body>
+</html>
